@@ -22,17 +22,6 @@ namespace Grimoire.Tools
                 
         public static async Task Login(Server server, int relogDelay, CancellationTokenSource cts, bool ensureSuccess)
         {
-            bool killLag = OptionsManager.LagKiller,
-                 disableAnims = OptionsManager.DisableAnimations,
-                 hidePlayers = OptionsManager.HidePlayers;
-
-            if (killLag)
-                OptionsManager.LagKiller = false;
-            if (disableAnims)
-                OptionsManager.DisableAnimations = false;
-            if (hidePlayers)
-                OptionsManager.HidePlayers = false;
-
             if (IsTemporarilyKicked)
                 await BotManager.Instance.ActiveBotEngine.WaitUntil(
                     () => !IsTemporarilyKicked, () => !cts.IsCancellationRequested, 65);
@@ -57,13 +46,6 @@ namespace Grimoire.Tools
 
             if (ensureSuccess)
                 Task.Run(() => EnsureLoginSuccess(cts));
-
-            if (killLag)
-                OptionsManager.LagKiller = true;
-            if (disableAnims)
-                OptionsManager.DisableAnimations = true;
-            if (hidePlayers)
-                OptionsManager.HidePlayers = true;
         }
 
         private static async Task EnsureLoginSuccess(CancellationTokenSource cts)
