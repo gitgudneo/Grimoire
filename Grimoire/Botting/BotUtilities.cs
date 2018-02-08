@@ -36,11 +36,11 @@ namespace Grimoire.Botting
             {
                 switch (cmd)
                 {
-                    case CmdAcceptQuest caq:
-                        ids.Add(caq.Quest.Id);
+                    case CmdAcceptQuest _:
+                        ids.Add(((CmdAcceptQuest)cmd).Quest.Id);
                         break;
-                    case CmdCompleteQuest ccq:
-                        ids.Add(ccq.Quest.Id);
+                    case CmdCompleteQuest _:
+                        ids.Add(((CmdCompleteQuest)cmd).Quest.Id);
                         break;
                 }
             }

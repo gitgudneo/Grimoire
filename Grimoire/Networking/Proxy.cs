@@ -318,17 +318,17 @@ namespace Grimoire.Networking
             {
                 switch (message)
                 {
-                    case JsonMessage msgJson:
-                        foreach (IJsonMessageHandler handler in _handlersJson.Where(h => h.HandledCommands.Contains(msgJson.Command)))
-                            handler.Handle(msgJson);
+                    case JsonMessage _:
+                        foreach (IJsonMessageHandler handler in _handlersJson.Where(h => h.HandledCommands.Contains(message.Command)))
+                            handler.Handle((JsonMessage)message);
                         break;
-                    case XmlMessage msgXml:
-                        foreach (IXmlMessageHandler handler in _handlersXml.Where(h => h.HandledCommands.Contains(msgXml.Command)))
-                            handler.Handle(msgXml);
+                    case XmlMessage _:
+                        foreach (IXmlMessageHandler handler in _handlersXml.Where(h => h.HandledCommands.Contains(message.Command)))
+                            handler.Handle((XmlMessage)message);
                         break;
-                    case XtMessage msgXt:
-                        foreach (IXtMessageHandler handler in _handlersXt.Where(h => h.HandledCommands.Contains(msgXt.Command)))
-                            handler.Handle(msgXt);
+                    case XtMessage _:
+                        foreach (IXtMessageHandler handler in _handlersXt.Where(h => h.HandledCommands.Contains(message.Command)))
+                            handler.Handle((XtMessage)message);
                         break;
                 }
             }
