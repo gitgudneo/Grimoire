@@ -1,4 +1,4 @@
 # Grimoire
-Adventure Quest Worlds (AQW) bot
+Adventure Quest Worlds (AQW) bot/trainer
 
-Feel free to do whatever you want with this. I do not have time to continue its development.
+Feel free to do whatever you want with this.
