@@ -27,8 +27,9 @@ namespace Grimoire.UI.BotForms
 
         private readonly Dictionary<string, string> _defaultText = new Dictionary<string, string>
         {
-            {"txtItem", "Item name"}, {"txtSwapBank", "Bank item name"}, {"txtSwapInv", "Inventory item name"},
-            {"txtWhitelist", "Item name"}, {"txtShopItem", "Item name"}
+            {nameof(txtItem), "Item name"}, {nameof(txtSwapBank), "Bank item name"},
+            {nameof(txtSwapInv), "Inventory item name"}, {nameof(txtWhitelist), "Item name"},
+            {nameof(txtShopItem), "Item name"}
         };
 
         private ItemTab()

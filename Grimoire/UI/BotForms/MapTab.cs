@@ -12,8 +12,8 @@ namespace Grimoire.UI.BotForms
 
         private readonly Dictionary<string, string> _defaultText = new Dictionary<string, string>
         {
-            {"txtJoin", "battleon-1e99"}, {"txtJoinCell", "Enter"}, {"txtJoinPad", "Spawn"},
-            {"txtCell", "Cell"}, {"txtPad", "Pad"}
+            {nameof(txtJoin), "battleon-1e99"}, {nameof(txtJoinCell), "Enter"}, {nameof(txtJoinPad), "Spawn"},
+            {nameof(txtCell), "Cell"}, {nameof(txtPad), "Pad"}
         };
 
         private MapTab()

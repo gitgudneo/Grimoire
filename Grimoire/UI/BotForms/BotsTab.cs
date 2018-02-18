@@ -26,7 +26,7 @@ namespace Grimoire.UI.BotForms
 
         private readonly Dictionary<string, string> _defaultText = new Dictionary<string, string>
         {
-            {"txtSavedAuthor", "Author"}, {"txtSavedDesc", "Description"}
+            {nameof(txtSavedAuthor), "Author"}, {nameof(txtSavedDesc), "Description"}
         };
 
         private BotsTab()

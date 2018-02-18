@@ -39,8 +39,9 @@ namespace Grimoire.UI.BotForms
 
         private readonly Dictionary<string, string> _defaultText = new Dictionary<string, string>
         {
-            {"txtPacket", "%xt%zm%........."}, {"txtAuthor", "Author"}, {"txtDescription", "Description"},
-            {"txtLabel", "Label name"}, {"txtPlayer", "Player name"}
+            {nameof(txtPacket), "%xt%zm%........."}, {nameof(txtAuthor), "Author"},
+            {nameof(txtDescription), "Description"}, {nameof(txtLabel), "Label name"},
+            {nameof(txtPlayer), "Player name"}
         };
 
         private MiscTab()

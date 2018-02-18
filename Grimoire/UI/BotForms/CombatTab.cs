@@ -61,8 +61,8 @@ namespace Grimoire.UI.BotForms
 
         private readonly Dictionary<string, string> _defaultText = new Dictionary<string, string>
         {
-            {"txtMonster", "Monster (*  = random)"}, {"txtKillFMon", "Monster (* = random)"},
-            {"txtKillFItem", "Item name"}, {"txtKillFQ", "Quantity (* = any)"}
+            {nameof(txtMonster), "Monster (*  = random)"}, {nameof(txtKillFMon), "Monster (* = random)"},
+            {nameof(txtKillFItem), "Item name"}, {nameof(txtKillFQ), "Quantity (* = any)"}
         };
 
         private CombatTab()
