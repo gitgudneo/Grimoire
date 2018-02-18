@@ -1,10 +1,18 @@
 ﻿using System.Collections.Generic;
 using Grimoire.Game.Data;
+using Newtonsoft.Json;
 
 namespace Grimoire.Botting
 {
     public class Configuration
     {
+        public static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        {
+            DefaultValueHandling = DefaultValueHandling.Ignore,
+            NullValueHandling = NullValueHandling.Ignore,
+            TypeNameHandling = TypeNameHandling.All
+        };
+
         public List<IBotCommand> Commands { get; set; } = new List<IBotCommand>();
         public List<Skill> Skills { get; set; } = new List<Skill>();
         public List<Quest> Quests { get; set; } = new List<Quest>();

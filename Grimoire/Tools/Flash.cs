@@ -8,6 +8,7 @@ using AxShockwaveFlashObjects;
 using Grimoire.Game;
 using Grimoire.Game.Data;
 using Grimoire.Networking;
+using Grimoire.UI.BotForms;
 using Newtonsoft.Json;
 
 namespace Grimoire.Tools
@@ -123,7 +124,7 @@ namespace Grimoire.Tools
                 };
             }
 
-            BotManager.Instance.OnServersLoaded(servers);
+            OptionsTab.Instance.OnServersLoaded(servers);
 
             return doc.OuterXml;
         }

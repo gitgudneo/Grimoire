@@ -175,6 +175,48 @@
     <Compile Include="UI\BotManager.Designer.cs">
       <DependentUpon>BotManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\BotForms\BotsTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\BotsTab.Designer.cs">
+      <DependentUpon>BotsTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotForms\CombatTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\CombatTab.Designer.cs">
+      <DependentUpon>CombatTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotForms\ItemTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\ItemTab.Designer.cs">
+      <DependentUpon>ItemTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotForms\MapTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\MapTab.Designer.cs">
+      <DependentUpon>MapTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotForms\MiscTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\MiscTab.Designer.cs">
+      <DependentUpon>MiscTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotForms\OptionsTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\OptionsTab.Designer.cs">
+      <DependentUpon>OptionsTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotForms\QuestTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotForms\QuestTab.Designer.cs">
+      <DependentUpon>QuestTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Hotkeys.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +284,27 @@
     <EmbeddedResource Include="UI\BotManager.resx">
       <DependentUpon>BotManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\BotsTab.resx">
+      <DependentUpon>BotsTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\CombatTab.resx">
+      <DependentUpon>CombatTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\ItemTab.resx">
+      <DependentUpon>ItemTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\MapTab.resx">
+      <DependentUpon>MapTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\MiscTab.resx">
+      <DependentUpon>MiscTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\OptionsTab.resx">
+      <DependentUpon>OptionsTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BotForms\QuestTab.resx">
+      <DependentUpon>QuestTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Hotkeys.resx">
       <DependentUpon>Hotkeys.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,9 +364,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\defaulttext.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Botting\IBotCommand.cs" />

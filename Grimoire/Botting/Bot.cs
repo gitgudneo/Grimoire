@@ -31,8 +31,10 @@ namespace Grimoire.Botting
             {
                 if (value != _config)
                 {
+                    bool invoke = _config != null && Configuration != value;
                     _config = value;
-                    ConfigurationChanged?.Invoke(_config);
+                    if (invoke)
+                        ConfigurationChanged?.Invoke(_config);
                 }
             }
         }

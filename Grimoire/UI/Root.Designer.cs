@@ -123,6 +123,7 @@
             // 
             this.botToolStripMenuItem.Name = "botToolStripMenuItem";
             this.botToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.botToolStripMenuItem.Tag = "";
             this.botToolStripMenuItem.Text = "Bot";
             this.botToolStripMenuItem.Click += new System.EventHandler(this.botToolStripMenuItem_Click_1);
             // 
