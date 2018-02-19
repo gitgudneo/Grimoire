@@ -146,7 +146,6 @@
             this.Text = "Plugin Manager";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PluginManager_FormClosing);
-            this.Load += new System.EventHandler(this.PluginManager_Load);
             this.gbLoaded.ResumeLayout(false);
             this.gbLoaded.PerformLayout();
             this.gbLoad.ResumeLayout(false);

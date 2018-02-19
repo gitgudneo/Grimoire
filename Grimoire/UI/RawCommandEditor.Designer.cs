@@ -77,7 +77,6 @@
             this.Name = "RawCommandEditor";
             this.Text = "Raw Command Editor";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.RawCommandEditor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -47,13 +47,23 @@ namespace Grimoire.UI
         private Hotkeys()
         {
             InitializeComponent();
-        }
-
-        private void Hotkeys_Load(object sender, EventArgs e)
-        {
+            Root.Instance.SizeChanged += Root_SizeChanged;
+            Root.Instance.VisibleChanged += Root_VisibleChanged;
             lstKeys.DisplayMember = "Text";
             cbActions.SelectedIndex = 0;
             cbKeys.SelectedIndex = 0;
+        }
+
+        private void Root_SizeChanged(object sender, EventArgs e)
+        {
+            FormWindowState state = ((Form)sender).WindowState;
+            if (state != FormWindowState.Maximized)
+                WindowState = state;
+        }
+
+        private void Root_VisibleChanged(object sender, EventArgs e)
+        {
+            Visible = ((Form)sender).Visible;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

@@ -176,7 +176,6 @@
             this.Text = "Hotkeys";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hotkeys_FormClosing);
-            this.Load += new System.EventHandler(this.Hotkeys_Load);
             this.ResumeLayout(false);
 
         }

@@ -14,6 +14,20 @@ namespace Grimoire.UI
         private Travel()
         {
             InitializeComponent();
+            Root.Instance.SizeChanged += Root_SizeChanged;
+            Root.Instance.VisibleChanged += Root_VisibleChanged;
+        }
+
+        private void Root_SizeChanged(object sender, EventArgs e)
+        {
+            FormWindowState state = ((Form)sender).WindowState;
+            if (state != FormWindowState.Maximized)
+                WindowState = state;
+        }
+
+        private void Root_VisibleChanged(object sender, EventArgs e)
+        {
+            Visible = ((Form)sender).Visible;
         }
 
         private void Travel_FormClosing(object sender, FormClosingEventArgs e)

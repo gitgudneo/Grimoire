@@ -12,10 +12,6 @@ namespace Grimoire.UI
         private RawCommandEditor()
         {
             InitializeComponent();
-        }
-
-        private void RawCommandEditor_Load(object sender, EventArgs e)
-        {
             txtCmd.Select();
         }
 

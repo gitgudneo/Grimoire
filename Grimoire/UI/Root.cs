@@ -18,10 +18,6 @@ namespace Grimoire.UI
         {
             InitializeComponent();
             Instance = this;
-        }
-        
-        private void Root_Load(object sender, EventArgs e)
-        {
             Task.Factory.StartNew(Proxy.Instance.Start, TaskCreationOptions.LongRunning);
             flashPlayer.FlashCall += Flash.ProcessFlashCall;
             Flash.SwfLoadProgress += OnLoadProgress;

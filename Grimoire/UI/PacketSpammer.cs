@@ -16,6 +16,20 @@ namespace Grimoire.UI
         private PacketSpammer()
         {
             InitializeComponent();
+            Root.Instance.SizeChanged += Root_SizeChanged;
+            Root.Instance.VisibleChanged += Root_VisibleChanged;
+        }
+
+        private void Root_SizeChanged(object sender, EventArgs e)
+        {
+            FormWindowState state = ((Form)sender).WindowState;
+            if (state != FormWindowState.Maximized)
+                WindowState = state;
+        }
+
+        private void Root_VisibleChanged(object sender, EventArgs e)
+        {
+            Visible = ((Form)sender).Visible;
         }
 
         private void btnClear_Click(object sender, EventArgs e)

@@ -294,7 +294,6 @@
             this.Text = " Bot";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BotManager_FormClosing);
-            this.Load += new System.EventHandler(this.BotManager_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

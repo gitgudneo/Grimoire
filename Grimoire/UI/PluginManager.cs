@@ -12,11 +12,21 @@ namespace Grimoire.UI
         public PluginManager()
         {
             InitializeComponent();
+            Root.Instance.SizeChanged += Root_SizeChanged;
+            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            lstLoaded.DisplayMember = "Name";
         }
 
-        private void PluginManager_Load(object sender, EventArgs e)
+        private void Root_SizeChanged(object sender, EventArgs e)
         {
-            lstLoaded.DisplayMember = "Name";
+            FormWindowState state = ((Form)sender).WindowState;
+            if (state != FormWindowState.Maximized)
+                WindowState = state;
+        }
+
+        private void Root_VisibleChanged(object sender, EventArgs e)
+        {
+            Visible = ((Form)sender).Visible;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)

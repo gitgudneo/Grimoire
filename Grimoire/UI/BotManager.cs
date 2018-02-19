@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -45,15 +46,25 @@ namespace Grimoire.UI
         private BotManager()
         {
             InitializeComponent();
-        }
-
-        private void BotManager_Load(object sender, EventArgs e)
-        {
+            Root.Instance.SizeChanged += Root_SizeChanged;
+            Root.Instance.VisibleChanged += Root_VisibleChanged;
             lstBoosts.DisplayMember = "Text";
             lstQuests.DisplayMember = "Text";
             lstSkills.DisplayMember = "Text";
             cbLists.SelectedIndex = 0;
             LoadForm(CombatTab.Instance);
+        }
+
+        private void Root_SizeChanged(object sender, EventArgs e)
+        {
+            FormWindowState state = ((Form) sender).WindowState;
+            if (state != FormWindowState.Maximized)
+                WindowState = state;
+        }
+
+        private void Root_VisibleChanged(object sender, EventArgs e)
+        {
+            Visible = ((Form) sender).Visible;
         }
 
         private void MoveListItem(int direction)

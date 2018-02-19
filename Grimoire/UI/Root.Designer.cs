@@ -262,7 +262,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grimoire 3.8";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Root_FormClosing);
-            this.Load += new System.EventHandler(this.Root_Load);
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numFPS)).EndInit();
