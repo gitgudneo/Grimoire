@@ -9,15 +9,15 @@ using Grimoire.Tools;
 
 namespace Grimoire.UI
 {
-    public partial class PacketSpammer : Form
+    public partial class PacketSpammerForm : Form
     {
-        public static PacketSpammer Instance { get; } = new PacketSpammer();
+        public static PacketSpammerForm Instance { get; } = new PacketSpammerForm();
 
-        private PacketSpammer()
+        private PacketSpammerForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
         }
 
         private void Root_SizeChanged(object sender, EventArgs e)

@@ -9,19 +9,18 @@ using Grimoire.Tools;
 
 namespace Grimoire.UI
 {
-    public partial class Root : Form
+    public partial class MainForm : Form
     {
-        public static Root Instance { get; private set; }
+        public static MainForm Instance { get; } = new MainForm();
+
         public AxShockwaveFlash Client => flashPlayer;
 
-        public Root()
+        private MainForm()
         {
             InitializeComponent();
-            Instance = this;
             Task.Factory.StartNew(Proxy.Instance.Start, TaskCreationOptions.LongRunning);
             flashPlayer.FlashCall += Flash.ProcessFlashCall;
             Flash.SwfLoadProgress += OnLoadProgress;
-            Hotkeys.Instance.LoadHotkeys();
             InitFlashMovie();
         }
 
@@ -39,42 +38,42 @@ namespace Grimoire.UI
 
         private void botToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ShowForm(BotManager.Instance);
+            ShowForm(BotManagerForm.Instance);
         }
 
         private void fastTravelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(Travel.Instance);
+            ShowForm(TravelsForm.Instance);
         }
 
         private void loadersgrabbersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(Loaders.Instance);
+            ShowForm(LoadersForm.Instance);
         }
 
         private void hotkeysToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(Hotkeys.Instance);
+            ShowForm(HotkeysForm.Instance);
         }
 
         private void pluginManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(PluginManager.Instance);
+            ShowForm(PluginsForm.Instance);
         }
 
         private void snifferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(PacketLogger.Instance);
+            ShowForm(PacketLoggerForm.Instance);
         }
 
         private void spammerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(PacketSpammer.Instance);
+            ShowForm(PacketSpammerForm.Instance);
         }
 
         private void tampererToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(PacketTamperer.Instance);
+            ShowForm(PacketTampererForm.Instance);
         }
 
         public void ShowForm(Form form)
@@ -132,13 +131,6 @@ namespace Grimoire.UI
         private void btnFPS_Click(object sender, EventArgs e)
         {
             Flash.Call("SetFPS", numFPS.Value.ToString());
-        }
-
-        private void Root_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Hotkeys.InstalledHotkeys.ForEach(h => h.Uninstall());
-            KeyboardHook.Instance.Dispose();
-            Proxy.Instance.Stop(true);
         }
     }
 }

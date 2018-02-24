@@ -7,8 +7,6 @@ namespace Grimoire.Tools
 {
     public class KeyboardHook : IDisposable
     {
-        public static KeyboardHook Instance { get; } = new KeyboardHook();
-
         [DllImport("user32", CallingConvention = CallingConvention.StdCall)]
         private static extern int SetWindowsHookEx(int idHook, CallbackDelegate lpfn, int hInstance, int threadId);
 
@@ -29,7 +27,7 @@ namespace Grimoire.Tools
         public readonly List<Keys> TargetedKeys;
         private readonly int _hookId;
 
-        private KeyboardHook()
+        public KeyboardHook()
         {
             hookCallback = HookProc;
 

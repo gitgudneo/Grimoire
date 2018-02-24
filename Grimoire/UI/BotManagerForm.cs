@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,9 +10,9 @@ using Grimoire.UI.BotForms;
 
 namespace Grimoire.UI
 {
-    public partial class BotManager : Form
+    public partial class BotManagerForm : Form
     {
-        public static BotManager Instance { get; } = new BotManager();
+        public static BotManagerForm Instance { get; } = new BotManagerForm();
 
         private IBotEngine _activeBotEngine = new Botting.Bot();
 
@@ -43,11 +42,11 @@ namespace Grimoire.UI
             }
         }
 
-        private BotManager()
+        private BotManagerForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
             lstBoosts.DisplayMember = "Text";
             lstQuests.DisplayMember = "Text";
             lstSkills.DisplayMember = "Text";
@@ -238,7 +237,7 @@ namespace Grimoire.UI
             {
                 object cmd = lstCommands.Items[index];
 
-                string mod = RawCommandEditor.Show(
+                string mod = CommandEditorForm.Show(
                     JsonConvert.SerializeObject(cmd, 
                         Formatting.Indented, Configuration.SerializerSettings));
 

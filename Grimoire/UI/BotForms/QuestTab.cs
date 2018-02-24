@@ -20,7 +20,7 @@ namespace Grimoire.UI.BotForms
             if (chkQuestItem.Checked)
                 q.ItemId = numQuestItem.Value.ToString();
             q.Text = q.ItemId != null ? $"{q.Id}:{q.ItemId}" : q.Id.ToString();
-            BotManager.Instance.AddQuest(q);
+            BotManagerForm.Instance.AddQuest(q);
         }
 
         private void btnQuestComplete_Click(object sender, EventArgs e)
@@ -31,13 +31,13 @@ namespace Grimoire.UI.BotForms
             if (chkQuestItem.Checked)
                 q.ItemId = numQuestItem.Value.ToString();
             cmd.Quest = q;
-            BotManager.Instance.AddCommand(cmd);
+            BotManagerForm.Instance.AddCommand(cmd);
         }
 
         private void btnQuestAccept_Click(object sender, EventArgs e)
         {
             Game.Data.Quest q = new Game.Data.Quest { Id = (int)numQuestID.Value };
-            BotManager.Instance.AddCommand(new CmdAcceptQuest { Quest = q });
+            BotManagerForm.Instance.AddCommand(new CmdAcceptQuest { Quest = q });
         }
 
         private void chkQuestItem_CheckedChanged(object sender, EventArgs e)

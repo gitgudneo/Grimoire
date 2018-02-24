@@ -163,17 +163,19 @@
     <Compile Include="Tools\Flash.cs" />
     <Compile Include="Tools\Grabber.cs" />
     <Compile Include="Tools\Hotkey.cs" />
+    <Compile Include="Tools\HotkeyManager.cs" />
     <Compile Include="Tools\KeyboardHook.cs" />
     <Compile Include="Tools\Plugins\GrimoirePlugin.cs" />
     <Compile Include="Tools\Plugins\GrimoirePluginEntry.cs" />
     <Compile Include="Tools\Plugins\IGrimoirePlugin.cs" />
     <Compile Include="Networking\Proxy.cs" />
+    <Compile Include="Tools\Plugins\PluginManager.cs" />
     <Compile Include="Tools\Spammer.cs" />
-    <Compile Include="UI\BotManager.cs">
+    <Compile Include="UI\BotManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\BotManager.Designer.cs">
-      <DependentUpon>BotManager.cs</DependentUpon>
+    <Compile Include="UI\BotManagerForm.Designer.cs">
+      <DependentUpon>BotManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\BotForms\BotsTab.cs">
       <SubType>Form</SubType>
@@ -217,59 +219,59 @@
     <Compile Include="UI\BotForms\QuestTab.Designer.cs">
       <DependentUpon>QuestTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Hotkeys.cs">
+    <Compile Include="UI\HotkeysForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Hotkeys.Designer.cs">
-      <DependentUpon>Hotkeys.cs</DependentUpon>
+    <Compile Include="UI\HotkeysForm.Designer.cs">
+      <DependentUpon>HotkeysForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Loaders.cs">
+    <Compile Include="UI\LoadersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Loaders.Designer.cs">
-      <DependentUpon>Loaders.cs</DependentUpon>
+    <Compile Include="UI\LoadersForm.Designer.cs">
+      <DependentUpon>LoadersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PacketLogger.cs">
+    <Compile Include="UI\PacketLoggerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PacketLogger.Designer.cs">
-      <DependentUpon>PacketLogger.cs</DependentUpon>
+    <Compile Include="UI\PacketLoggerForm.Designer.cs">
+      <DependentUpon>PacketLoggerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PacketSpammer.cs">
+    <Compile Include="UI\PacketSpammerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PacketSpammer.Designer.cs">
-      <DependentUpon>PacketSpammer.cs</DependentUpon>
+    <Compile Include="UI\PacketSpammerForm.Designer.cs">
+      <DependentUpon>PacketSpammerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PacketTamperer.cs">
+    <Compile Include="UI\PacketTampererForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PacketTamperer.Designer.cs">
-      <DependentUpon>PacketTamperer.cs</DependentUpon>
+    <Compile Include="UI\PacketTampererForm.Designer.cs">
+      <DependentUpon>PacketTampererForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PluginManager.cs">
+    <Compile Include="UI\PluginsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PluginManager.Designer.cs">
-      <DependentUpon>PluginManager.cs</DependentUpon>
+    <Compile Include="UI\PluginsForm.Designer.cs">
+      <DependentUpon>PluginsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\RawCommandEditor.cs">
+    <Compile Include="UI\CommandEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\RawCommandEditor.Designer.cs">
-      <DependentUpon>RawCommandEditor.cs</DependentUpon>
+    <Compile Include="UI\CommandEditorForm.Designer.cs">
+      <DependentUpon>CommandEditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Root.cs">
+    <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Root.Designer.cs">
-      <DependentUpon>Root.cs</DependentUpon>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Travel.cs">
+    <Compile Include="UI\TravelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Travel.Designer.cs">
-      <DependentUpon>Travel.cs</DependentUpon>
+    <Compile Include="UI\TravelsForm.Designer.cs">
+      <DependentUpon>TravelsForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -281,8 +283,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\BotManager.resx">
-      <DependentUpon>BotManager.cs</DependentUpon>
+    <EmbeddedResource Include="UI\BotManagerForm.resx">
+      <DependentUpon>BotManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\BotForms\BotsTab.resx">
       <DependentUpon>BotsTab.cs</DependentUpon>
@@ -305,32 +307,32 @@
     <EmbeddedResource Include="UI\BotForms\QuestTab.resx">
       <DependentUpon>QuestTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Hotkeys.resx">
-      <DependentUpon>Hotkeys.cs</DependentUpon>
+    <EmbeddedResource Include="UI\HotkeysForm.resx">
+      <DependentUpon>HotkeysForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Loaders.resx">
-      <DependentUpon>Loaders.cs</DependentUpon>
+    <EmbeddedResource Include="UI\LoadersForm.resx">
+      <DependentUpon>LoadersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PacketLogger.resx">
-      <DependentUpon>PacketLogger.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PacketLoggerForm.resx">
+      <DependentUpon>PacketLoggerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PacketSpammer.resx">
-      <DependentUpon>PacketSpammer.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PacketSpammerForm.resx">
+      <DependentUpon>PacketSpammerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PacketTamperer.resx">
-      <DependentUpon>PacketTamperer.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PacketTampererForm.resx">
+      <DependentUpon>PacketTampererForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PluginManager.resx">
-      <DependentUpon>PluginManager.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PluginsForm.resx">
+      <DependentUpon>PluginsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\RawCommandEditor.resx">
-      <DependentUpon>RawCommandEditor.cs</DependentUpon>
+    <EmbeddedResource Include="UI\CommandEditorForm.resx">
+      <DependentUpon>CommandEditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Root.resx">
-      <DependentUpon>Root.cs</DependentUpon>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Travel.resx">
-      <DependentUpon>Travel.cs</DependentUpon>
+    <EmbeddedResource Include="UI\TravelsForm.resx">
+      <DependentUpon>TravelsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

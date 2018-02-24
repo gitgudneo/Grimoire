@@ -4,15 +4,15 @@ using Grimoire.Networking;
 
 namespace Grimoire.UI
 {
-    public partial class PacketTamperer : Form
+    public partial class PacketTampererForm : Form
     {
-        public static PacketTamperer Instance { get; } = new PacketTamperer();
+        public static PacketTampererForm Instance { get; } = new PacketTampererForm();
 
-        private PacketTamperer()
+        private PacketTampererForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
         }
 
         private void Root_SizeChanged(object sender, EventArgs e)

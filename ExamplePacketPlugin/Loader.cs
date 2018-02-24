@@ -17,7 +17,7 @@ namespace ExamplePacketPlugin
         public void Load()
         {
             // Add an item to the main menu in Grimoire.
-            menuItem = Grimoire.UI.Root.Instance.MenuMain.Items.Add("Packet testing");
+            menuItem = Grimoire.UI.MainForm.Instance.MenuMain.Items.Add("Packet testing");
             menuItem.Click += MenuStripItem_Click;
         }
 
@@ -25,7 +25,7 @@ namespace ExamplePacketPlugin
         {
             Proxy.Instance.UnregisterHandler(Main.Instance.Handler);
             menuItem.Click -= MenuStripItem_Click;
-            Grimoire.UI.Root.Instance.MenuMain.Items.Remove(menuItem);
+            Grimoire.UI.MainForm.Instance.MenuMain.Items.Remove(menuItem);
             Main.Instance.Dispose();
         }
 

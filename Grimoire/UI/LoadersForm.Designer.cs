@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class Loaders
+    partial class LoadersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loaders));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadersForm));
             this.txtLoaders = new System.Windows.Forms.TextBox();
             this.cbLoad = new System.Windows.Forms.ComboBox();
             this.btnLoad = new System.Windows.Forms.Button();

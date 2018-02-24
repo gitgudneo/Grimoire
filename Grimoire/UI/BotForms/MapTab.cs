@@ -28,7 +28,7 @@ namespace Grimoire.UI.BotForms
                 cell = string.IsNullOrEmpty(txtJoinCell.Text) ? "Enter" : txtJoinCell.Text,
                 pad = string.IsNullOrEmpty(txtJoinPad.Text) ? "Spawn" : txtJoinPad.Text;
             if (map.Length > 0)
-                BotManager.Instance.AddCommand(new CmdJoin { Map = map, Cell = cell, Pad = pad });
+                BotManagerForm.Instance.AddCommand(new CmdJoin { Map = map, Cell = cell, Pad = pad });
         }
 
         private void btnCellSwap_Click(object sender, EventArgs e)
@@ -47,13 +47,13 @@ namespace Grimoire.UI.BotForms
         {
             string cell = string.IsNullOrEmpty(txtCell.Text) ? "Enter" : txtCell.Text,
                 pad = string.IsNullOrEmpty(txtPad.Text) ? "Spawn" : txtPad.Text;
-            BotManager.Instance.AddCommand(new CmdMoveToCell { Cell = cell, Pad = pad });
+            BotManagerForm.Instance.AddCommand(new CmdMoveToCell { Cell = cell, Pad = pad });
         }
 
         private void btnWalk_Click(object sender, EventArgs e)
         {
             string x = numWalkX.Value.ToString(), y = numWalkY.Value.ToString();
-            BotManager.Instance.AddCommand(new CmdWalk { X = x, Y = y });
+            BotManagerForm.Instance.AddCommand(new CmdWalk { X = x, Y = y });
         }
 
         private void btnWalkCur_Click(object sender, EventArgs e)

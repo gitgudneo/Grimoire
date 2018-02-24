@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class PacketSpammer
+    partial class PacketSpammerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PacketSpammer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PacketSpammerForm));
             this.lstPackets = new System.Windows.Forms.ListBox();
             this.txtPacket = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();

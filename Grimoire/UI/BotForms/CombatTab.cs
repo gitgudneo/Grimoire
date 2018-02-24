@@ -74,7 +74,7 @@ namespace Grimoire.UI.BotForms
         private void btnKill_Click(object sender, EventArgs e)
         {
             string mon = string.IsNullOrEmpty(txtMonster.Text) ? "*" : txtMonster.Text;
-            BotManager.Instance.AddCommand(new CmdKill { Monster = mon });
+            BotManagerForm.Instance.AddCommand(new CmdKill { Monster = mon });
         }
 
         private void btnKillF_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace Grimoire.UI.BotForms
             {
                 string monster = string.IsNullOrEmpty(txtKillFMon.Text) ? "*" : txtKillFMon.Text;
                 string item = txtKillFItem.Text, quantity = txtKillFQ.Text;
-                BotManager.Instance.AddCommand(new CmdKillFor
+                BotManagerForm.Instance.AddCommand(new CmdKillFor
                 {
                     ItemType = rbItems.Checked ? ItemType.Items : ItemType.TempItems,
                     Monster = monster,
@@ -96,7 +96,7 @@ namespace Grimoire.UI.BotForms
         private void btnAddSkill_Click(object sender, EventArgs e)
         {
             string index = numSkill.Text;
-            BotManager.Instance.AddSkill(new Skill
+            BotManagerForm.Instance.AddSkill(new Skill
             {
                 Text = $"{index}: {Skill.GetSkillName(index)}",
                 Index = index,
@@ -108,7 +108,7 @@ namespace Grimoire.UI.BotForms
         {
             string index = numSkill.Text;
             int safe = (int)numSafe.Value;
-            BotManager.Instance.AddSkill(new Skill
+            BotManagerForm.Instance.AddSkill(new Skill
             {
                 Text = $"[S] {index}: {Skill.GetSkillName(index)}",
                 Index = index,
@@ -120,12 +120,12 @@ namespace Grimoire.UI.BotForms
 
         private void btnRest_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdRest());
+            BotManagerForm.Instance.AddCommand(new CmdRest());
         }
 
         private void btnRestF_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdRest { Full = true });
+            BotManagerForm.Instance.AddCommand(new CmdRest { Full = true });
         }
 
         private void TextboxEnter(object sender, EventArgs e)

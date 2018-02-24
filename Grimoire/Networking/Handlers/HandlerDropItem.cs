@@ -20,9 +20,9 @@ namespace Grimoire.Networking.Handlers
             {
                 InventoryItem item = j.ToObject<Dictionary<int, InventoryItem>>().First().Value;
 
-                if (BotManager.Instance.ActiveBotEngine.IsRunning)
+                if (BotManagerForm.Instance.ActiveBotEngine.IsRunning)
                 {
-                    var config = BotManager.Instance.ActiveBotEngine.Configuration;
+                    var config = BotManagerForm.Instance.ActiveBotEngine.Configuration;
 
                     message.Send = !(config.EnableRejection && config.Drops.All(
                                                   d => !d.Equals(item.Name, StringComparison.OrdinalIgnoreCase)));

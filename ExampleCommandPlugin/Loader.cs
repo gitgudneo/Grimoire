@@ -16,14 +16,14 @@ namespace ExampleCommandPlugin
         public void Load()
         {
             // Add an item to the main menu in Grimoire.
-            menuItem = Grimoire.UI.Root.Instance.MenuMain.Items.Add("Extra commands");
+            menuItem = Grimoire.UI.MainForm.Instance.MenuMain.Items.Add("Extra commands");
             menuItem.Click += MenuStripItem_Click;
         }
 
         public void Unload() // In this method you need to clean everything up
         {
             menuItem.Click -= MenuStripItem_Click;
-            Grimoire.UI.Root.Instance.MenuMain.Items.Remove(menuItem);
+            Grimoire.UI.MainForm.Instance.MenuMain.Items.Remove(menuItem);
             Main.Instance.Dispose();
         }
 

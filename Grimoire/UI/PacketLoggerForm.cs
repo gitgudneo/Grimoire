@@ -5,15 +5,15 @@ using Message = Grimoire.Networking.Message;
 
 namespace Grimoire.UI
 {
-    public partial class PacketLogger : Form
+    public partial class PacketLoggerForm : Form
     {
-        public static PacketLogger Instance { get; } = new PacketLogger();
+        public static PacketLoggerForm Instance { get; } = new PacketLoggerForm();
 
-        private PacketLogger()
+        private PacketLoggerForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
         }
 
         private void Root_SizeChanged(object sender, EventArgs e)

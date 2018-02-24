@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class PacketTamperer
+    partial class PacketTampererForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PacketTamperer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PacketTampererForm));
             this.txtSend = new System.Windows.Forms.RichTextBox();
             this.txtReceive = new System.Windows.Forms.RichTextBox();
             this.btnToServer = new System.Windows.Forms.Button();

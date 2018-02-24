@@ -7,15 +7,15 @@ using Grimoire.Botting.Commands.Map;
 
 namespace Grimoire.UI
 {
-    public partial class Travel : Form
+    public partial class TravelsForm : Form
     {
-        public static Travel Instance { get; } = new Travel();
+        public static TravelsForm Instance { get; } = new TravelsForm();
 
-        private Travel()
+        private TravelsForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
         }
 
         private void Root_SizeChanged(object sender, EventArgs e)

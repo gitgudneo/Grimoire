@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class BotManager
+    partial class BotManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BotManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BotManagerForm));
             this.lstCommands = new System.Windows.Forms.ListBox();
             this.lstBoosts = new System.Windows.Forms.ListBox();
             this.lstDrops = new System.Windows.Forms.ListBox();

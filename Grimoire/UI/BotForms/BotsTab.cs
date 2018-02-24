@@ -54,7 +54,7 @@ namespace Grimoire.UI.BotForms
                 {
                     Configuration cfg =
                         JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(selection));
-                    BotManager.Instance.ApplyConfiguration(cfg);
+                    BotManagerForm.Instance.ApplyConfiguration(cfg);
 
                     lblCommands.Text = $"Number of{Environment.NewLine}Commands: {cfg.Commands?.Count}";
                     lblSkills.Text = $"Skills: {cfg.Skills?.Count}";

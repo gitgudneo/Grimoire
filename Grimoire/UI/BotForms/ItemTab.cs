@@ -63,20 +63,20 @@ namespace Grimoire.UI.BotForms
                     default: cmd = new CmdGetDrop { ItemName = item };
                         break;
                 }
-                BotManager.Instance.AddCommand(cmd);
+                BotManagerForm.Instance.AddCommand(cmd);
             }
         }
 
         private void btnMapItem_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdMapItem { ItemId = (int)numMapItem.Value });
+            BotManagerForm.Instance.AddCommand(new CmdMapItem { ItemId = (int)numMapItem.Value });
         }
 
         private void btnBBAdd_Click(object sender, EventArgs e)
         {
             string item = txtBBItem.Text;
             if (item.Length > 0)
-                BotManager.Instance.AddCommand(
+                BotManagerForm.Instance.AddCommand(
                     new CmdBuyBack { ItemName = item, PageNumberCap = (int)numBBCap.Value });
         }
 
@@ -84,7 +84,7 @@ namespace Grimoire.UI.BotForms
         {
             string item = txtWhitelist.Text;
             if (item.Length > 0)
-                BotManager.Instance.AddWhitelistedItem(item);
+                BotManagerForm.Instance.AddWhitelistedItem(item);
         }
 
         private void btnSwap_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace Grimoire.UI.BotForms
             string bank = txtSwapBank.Text, inv = txtSwapInv.Text;
             if (bank.Length > 0 && inv.Length > 0)
             {
-                BotManager.Instance.AddCommand(new CmdBankSwap
+                BotManagerForm.Instance.AddCommand(new CmdBankSwap
                 {
                     InventoryItemName = inv,
                     BankItemName = bank
@@ -103,7 +103,7 @@ namespace Grimoire.UI.BotForms
         private void btnBoost_Click(object sender, EventArgs e)
         {
             if (cbBoosts.SelectedIndex > -1)
-                BotManager.Instance.AddBoost((InventoryItem)cbBoosts.SelectedItem);
+                BotManagerForm.Instance.AddBoost((InventoryItem)cbBoosts.SelectedItem);
         }
 
         private void cbBoosts_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace Grimoire.UI.BotForms
         private void btnBuy_Click(object sender, EventArgs e)
         {
             if (txtShopItem.TextLength > 0)
-                BotManager.Instance.AddCommand(new CmdBuy { ItemName = txtShopItem.Text, ShopId = (int)numShopId.Value });
+                BotManagerForm.Instance.AddCommand(new CmdBuy { ItemName = txtShopItem.Text, ShopId = (int)numShopId.Value });
         }
 
         private void TextboxEnter(object sender, EventArgs e)

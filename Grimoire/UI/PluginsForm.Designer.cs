@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class PluginManager
+    partial class PluginsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PluginsForm));
             this.gbLoaded = new System.Windows.Forms.GroupBox();
             this.btnUnload = new System.Windows.Forms.Button();
             this.txtDesc = new System.Windows.Forms.TextBox();
@@ -38,6 +38,7 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtPlugin = new System.Windows.Forms.TextBox();
+            this.chkAutoload = new System.Windows.Forms.CheckBox();
             this.gbLoaded.SuspendLayout();
             this.gbLoad.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // gbLoad
             // 
+            this.gbLoad.Controls.Add(this.chkAutoload);
             this.gbLoad.Controls.Add(this.btnBrowse);
             this.gbLoad.Controls.Add(this.btnLoad);
             this.gbLoad.Controls.Add(this.txtPlugin);
@@ -132,7 +134,17 @@
             this.txtPlugin.Size = new System.Drawing.Size(246, 20);
             this.txtPlugin.TabIndex = 4;
             // 
-            // PluginManager
+            // chkAutoload
+            // 
+            this.chkAutoload.AutoSize = true;
+            this.chkAutoload.Location = new System.Drawing.Point(33, 50);
+            this.chkAutoload.Name = "chkAutoload";
+            this.chkAutoload.Size = new System.Drawing.Size(169, 17);
+            this.chkAutoload.TabIndex = 9;
+            this.chkAutoload.Text = "Auto load when Grimoire starts";
+            this.chkAutoload.UseVisualStyleBackColor = true;
+            // 
+            // PluginsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +154,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "PluginManager";
+            this.Name = "PluginsForm";
             this.Text = "Plugin Manager";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PluginManager_FormClosing);
@@ -165,5 +177,6 @@
         public System.Windows.Forms.Button btnBrowse;
         public System.Windows.Forms.Button btnLoad;
         public System.Windows.Forms.TextBox txtPlugin;
+        private System.Windows.Forms.CheckBox chkAutoload;
     }
 }

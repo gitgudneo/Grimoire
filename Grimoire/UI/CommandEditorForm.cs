@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace Grimoire.UI
 {
-    public partial class RawCommandEditor : Form
+    public partial class CommandEditorForm : Form
     {
         public string Input => txtCmd.Text;
 
         public string Content { set => txtCmd.Text = value; }
 
-        private RawCommandEditor()
+        private CommandEditorForm()
         {
             InitializeComponent();
             txtCmd.Select();
@@ -30,7 +30,7 @@ namespace Grimoire.UI
 
         public static string Show(string content)
         {
-            using (RawCommandEditor dialog = new RawCommandEditor {Content = content})
+            using (CommandEditorForm dialog = new CommandEditorForm {Content = content})
                 return dialog.ShowDialog() == DialogResult.OK ? dialog.Input : null;
         }
     }

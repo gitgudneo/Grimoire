@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class Travel
+    partial class TravelsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Travel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TravelsForm));
             this.btnDage = new System.Windows.Forms.Button();
             this.btnEscherion = new System.Windows.Forms.Button();
             this.btnNulgath2 = new System.Windows.Forms.Button();

@@ -34,7 +34,7 @@ namespace Grimoire.Tools
                 OptionsManager.HidePlayers = false;
 
             if (IsTemporarilyKicked)
-                await BotManager.Instance.ActiveBotEngine.WaitUntil(
+                await BotManagerForm.Instance.ActiveBotEngine.WaitUntil(
                     () => !IsTemporarilyKicked, () => !cts.IsCancellationRequested, 65);
 
             if (cts.IsCancellationRequested)
@@ -42,13 +42,13 @@ namespace Grimoire.Tools
 
             ResetServers();
             Login();
-            await BotManager.Instance.ActiveBotEngine.WaitUntil(() => AreServersLoaded, () => !cts.IsCancellationRequested, 30);
+            await BotManagerForm.Instance.ActiveBotEngine.WaitUntil(() => AreServersLoaded, () => !cts.IsCancellationRequested, 30);
 
             if (cts.IsCancellationRequested)
                 return;
 
             Connect(server);
-            await BotManager.Instance.ActiveBotEngine.WaitUntil(() => !World.IsMapLoading, () => !cts.IsCancellationRequested, 40);
+            await BotManagerForm.Instance.ActiveBotEngine.WaitUntil(() => !World.IsMapLoading, () => !cts.IsCancellationRequested, 40);
 
             if (cts.IsCancellationRequested)
                 return;

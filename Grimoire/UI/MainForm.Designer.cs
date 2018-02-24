@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class Root
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Root));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.nTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.cbPads = new System.Windows.Forms.ComboBox();
             this.cbCells = new System.Windows.Forms.ComboBox();
@@ -244,7 +244,7 @@
             this.flashPlayer.TabIndex = 2;
             this.flashPlayer.Visible = false;
             // 
-            // Root
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -258,10 +258,9 @@
             this.Controls.Add(this.flashPlayer);
             this.Controls.Add(this.MenuMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Root";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grimoire 3.8";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Root_FormClosing);
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numFPS)).EndInit();

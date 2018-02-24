@@ -1,6 +1,6 @@
 ﻿namespace Grimoire.UI
 {
-    partial class Hotkeys
+    partial class HotkeysForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hotkeys));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HotkeysForm));
             this.lstKeys = new System.Windows.Forms.ListBox();
             this.cbKeys = new System.Windows.Forms.ComboBox();
             this.cbActions = new System.Windows.Forms.ComboBox();

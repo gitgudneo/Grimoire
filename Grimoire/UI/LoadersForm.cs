@@ -7,15 +7,15 @@ using Grimoire.Tools;
 
 namespace Grimoire.UI
 {
-    public partial class Loaders : Form
+    public partial class LoadersForm : Form
     {
-        public static Loaders Instance { get; } = new Loaders();
+        public static LoadersForm Instance { get; } = new LoadersForm();
 
-        private Loaders()
+        private LoadersForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
         }
 
         private void Root_SizeChanged(object sender, EventArgs e)

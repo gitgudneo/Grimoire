@@ -5,16 +5,22 @@ using Grimoire.Tools.Plugins;
 
 namespace Grimoire.UI
 {
-    public partial class PluginManager : Form
+    public partial class PluginsForm : Form
     {
-        public static PluginManager Instance { get; } = new PluginManager();
+        public static PluginsForm Instance { get; } = new PluginsForm();
 
-        public PluginManager()
+        public PluginsForm()
         {
             InitializeComponent();
-            Root.Instance.SizeChanged += Root_SizeChanged;
-            Root.Instance.VisibleChanged += Root_VisibleChanged;
+            MainForm.Instance.SizeChanged += Root_SizeChanged;
+            MainForm.Instance.VisibleChanged += Root_VisibleChanged;
             lstLoaded.DisplayMember = "Name";
+
+            if (Program.PluginsManager.LoadedPlugins.Count > 0)
+            {
+                lstLoaded.Items.AddRange(Program.PluginsManager.LoadedPlugins.ToArray());
+                lstLoaded.SelectedIndex = 0;
+            }
         }
 
         private void Root_SizeChanged(object sender, EventArgs e)
@@ -38,6 +44,18 @@ namespace Grimoire.UI
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     txtPlugin.Text = ofd.FileName;
+
+                    if (ofd.FileName == 
+                        Path.Combine(Program.PluginsPath, Path.GetFileName(ofd.FileName)))
+                    {
+                        chkAutoload.Checked = true;
+                        chkAutoload.Enabled = false;
+                    }
+                    else
+                    {
+                        chkAutoload.Checked = false;
+                        chkAutoload.Enabled = true;
+                    }
                 }
             }
         }
@@ -45,19 +63,38 @@ namespace Grimoire.UI
         private void btnLoad_Click(object sender, EventArgs e)
         {
             string dll;
+
             if (File.Exists(dll = txtPlugin.Text))
             {
-                GrimoirePlugin p = new GrimoirePlugin(dll);
-                if (p.Load())
+                if (chkAutoload.Enabled && chkAutoload.Checked)
+                {
+                    string copy = Path.Combine(Program.PluginsPath, Path.GetFileName(dll));
+
+                    if (!File.Exists(copy))
+                    {
+                        try
+                        {
+                            File.Copy(dll, copy);
+                            dll = copy;
+                            txtPlugin.Text = dll;
+                        }
+                        catch (Exception exc)
+                        {
+                            MessageBox.Show($"Unable to copy {dll} to {copy}\n{exc.Message}");
+                        }
+                    }
+                }
+
+                if (Program.PluginsManager.Load(dll))
                 {
                     txtPlugin.Clear();
                     lstLoaded.Items.Clear();
-                    lstLoaded.Items.AddRange(GrimoirePlugin.LoadedPlugins.ToArray());
-                    lstLoaded.SelectedItem = p;
+                    lstLoaded.Items.AddRange(Program.PluginsManager.LoadedPlugins.ToArray());
+                    lstLoaded.SelectedIndex = lstLoaded.Items.Count - 1;
                 }
                 else
                 {
-                    MessageBox.Show(p.LastError, "Grimoire",
+                    MessageBox.Show(Program.PluginsManager.LastError, "Grimoire",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -65,13 +102,13 @@ namespace Grimoire.UI
 
         private void btnUnload_Click(object sender, EventArgs e)
         {
-            int index;
-            if ((index = lstLoaded.SelectedIndex) > -1)
+            GrimoirePlugin p = (GrimoirePlugin) lstLoaded.SelectedItem;
+
+            if (p != null)
             {
-                GrimoirePlugin p = GrimoirePlugin.LoadedPlugins[index];
-                if (p.Unload())
+                if (Program.PluginsManager.Unload(p))
                 {
-                    lstLoaded.Items.RemoveAt(index);
+                    lstLoaded.Items.Remove(p);
                     lblAuthor.Text = "Plugin created by:";
                     txtDesc.Clear();
                 }
@@ -85,10 +122,10 @@ namespace Grimoire.UI
 
         private void lstLoaded_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index;
-            if ((index = lstLoaded.SelectedIndex) > -1)
+            GrimoirePlugin p = (GrimoirePlugin) lstLoaded.SelectedItem;
+
+            if (p != null)
             {
-                GrimoirePlugin p = GrimoirePlugin.LoadedPlugins[index];
                 lblAuthor.Text = $"Plugin created by: {p.Author}";
                 txtDesc.Text = p.Description;
             }

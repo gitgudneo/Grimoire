@@ -17,7 +17,7 @@ namespace ExampleCommandPlugin
         {
             if (!string.IsNullOrEmpty(txtMonster.Text))
             {
-                BotManager.Instance.AddCommand(new CmdKillMany
+                BotManagerForm.Instance.AddCommand(new CmdKillMany
                 {
                     Kills = (int)numKills.Value,
                     Monster = txtMonster.Text

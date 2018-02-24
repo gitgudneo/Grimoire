@@ -29,7 +29,7 @@ namespace Grimoire.Tools
                     SwfLoadProgress?.Invoke(int.Parse(arg));
                     break;
                 case "modifyServers":
-                    Root.Instance.Client.SetReturnValue("<string>" + ModifyServerList(arg.Trim()) + "</string>");
+                    MainForm.Instance.Client.SetReturnValue("<string>" + ModifyServerList(arg.Trim()) + "</string>");
                     break;
                 case "disconnect":
                     Proxy.Instance.Stop(false);
@@ -73,7 +73,7 @@ namespace Grimoire.Tools
                 return 
                     HttpUtility.HtmlDecode(
                     XElement.Parse(
-                    Root.Instance.Client.CallFunction(request)).FirstNode?.ToString() ?? string.Empty);
+                    MainForm.Instance.Client.CallFunction(request)).FirstNode?.ToString() ?? string.Empty);
             }
             /* Catch any exceptions and ignore them to keep the bot running. If an ExternalInterface 
                call fails, nothing can be done */

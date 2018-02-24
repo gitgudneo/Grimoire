@@ -58,36 +58,36 @@ namespace Grimoire.UI.BotForms
 
         private void btnPacket_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdPacket { Packet = txtPacket.Text });
+            BotManagerForm.Instance.AddCommand(new CmdPacket { Packet = txtPacket.Text });
         }
 
         private void btnDelay_Click(object sender, EventArgs e)
         {
             int delay = (int)numDelay.Value;
-            BotManager.Instance.AddCommand(new CmdDelay { Delay = delay });
+            BotManagerForm.Instance.AddCommand(new CmdDelay { Delay = delay });
         }
 
         private void btnGoto_Click(object sender, EventArgs e)
         {
             string player = txtPlayer.Text;
             if (player.Length > 0)
-                BotManager.Instance.AddCommand(new CmdGotoPlayer { PlayerName = player });
+                BotManagerForm.Instance.AddCommand(new CmdGotoPlayer { PlayerName = player });
         }
 
         private void btnBotDelay_Click(object sender, EventArgs e)
         {
             int delay = (int)numBotDelay.Value;
-            BotManager.Instance.AddCommand(new CmdBotDelay { Delay = delay });
+            BotManagerForm.Instance.AddCommand(new CmdBotDelay { Delay = delay });
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdStop());
+            BotManagerForm.Instance.AddCommand(new CmdStop());
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdRestart());
+            BotManagerForm.Instance.AddCommand(new CmdRestart());
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace Grimoire.UI.BotForms
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     if (TryDeserialize(File.ReadAllText(ofd.FileName), out Configuration cfg))
-                        BotManager.Instance.ApplyConfiguration(cfg);
+                        BotManagerForm.Instance.ApplyConfiguration(cfg);
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace Grimoire.UI.BotForms
                 ofd.CheckFileExists = false;
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    Configuration cfg = BotManager.Instance.GenerateConfiguration();
+                    Configuration cfg = BotManagerForm.Instance.GenerateConfiguration();
                     try
                     {
                         File.WriteAllText(
@@ -155,7 +155,7 @@ namespace Grimoire.UI.BotForms
                 ofd.InitialDirectory = defPath;
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    BotManager.Instance.AddCommand(new CmdLoadBot
+                    BotManagerForm.Instance.AddCommand(new CmdLoadBot
                     {
                         BotFileName = Path.GetFileName(ofd.FileName)
                     });
@@ -185,7 +185,7 @@ namespace Grimoire.UI.BotForms
                     (StatementCommand)Activator.CreateInstance(cbStatement.SelectedItem.GetType());
                 cmd.Value1 = value1;
                 cmd.Value2 = value2;
-                BotManager.Instance.AddCommand((IBotCommand)cmd);
+                BotManagerForm.Instance.AddCommand((IBotCommand)cmd);
             }
         }
 
@@ -203,18 +203,18 @@ namespace Grimoire.UI.BotForms
         private void btnGotoLabel_Click(object sender, EventArgs e)
         {
             if (txtLabel.TextLength > 0)
-                BotManager.Instance.AddCommand(new CmdGotoLabel { Label = txtLabel.Text });
+                BotManagerForm.Instance.AddCommand(new CmdGotoLabel { Label = txtLabel.Text });
         }
 
         private void btnAddLabel_Click(object sender, EventArgs e)
         {
             if (txtLabel.TextLength > 0)
-                BotManager.Instance.AddCommand(new CmdLabel { Name = txtLabel.Text });
+                BotManagerForm.Instance.AddCommand(new CmdLabel { Name = txtLabel.Text });
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            BotManager.Instance.AddCommand(new CmdLogout());
+            BotManagerForm.Instance.AddCommand(new CmdLogout());
         }
 
         private void TextboxEnter(object sender, EventArgs e)
