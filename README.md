@@ -1,4 +1,9 @@
 # Grimoire
 Adventure Quest Worlds (AQW) bot
 
-Feel free to do whatever you want with this. I do not have time to continue its development.
+## Some features in this bot:
+* Flexible bot engine
+* A large set of default commands that allows for the automation of almost any task in-game
+* Message/packet interception (modifying the content, dropping the packet)
+* Plugin support which, among other things, makes it possible to create custom bot commands
+* Configurable hotkeys
