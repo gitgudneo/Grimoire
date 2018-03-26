@@ -24,7 +24,6 @@
 	import grimoire.game.TempInventory;
 	import grimoire.game.AutoRelogin;
 	import grimoire.game.Settings;
-	import fl.controls.Button;
 
 	public class Root extends MovieClip
 	{
@@ -33,8 +32,8 @@
 		private var loader:Loader;
 		private var loaderVars:Object;
 		private const sTitle:String = "Grimoire";
-		private const sURL:String = "http://cdn.aqworlds.com/game/";
-		private const versionURL:String = "http://game.aqworlds.com/game/gameversion.asp";
+		private const sURL:String = "https://www.aq.com/game/";
+		private const versionURL:String = "https://www.aq.com/game/gameversion.asp";
 		public static var Game:Object;
 		private var stg:*;
 
@@ -43,13 +42,6 @@
 
 		public static var Username:String;
 		public static var Password:String;
-
-		public var btnTest:Button;
-		
-		private function btnTest_Click(e:MouseEvent):void
-		{
-
-		}
 
 		public function Root()
 		{
@@ -114,9 +106,6 @@
 			
 			Game.sfc.addEventListener(SFSEvent.onConnectionLost, OnDisconnect);
 			Game.loginLoader.addEventListener(Event.COMPLETE, OnLoginComplete);
-			//stg.addChildAt(btnTest, stg.numChildren);
-			//btnTest.visible = true;
-			//btnTest.addEventListener(MouseEvent.CLICK, btnTest_Click);
 			addEventListener(Event.ENTER_FRAME, EnterFrame);
 			Externalize();
 		}

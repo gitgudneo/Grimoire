@@ -11,7 +11,9 @@ namespace Grimoire.UI
 {
     public partial class MainForm : Form
     {
-        public static MainForm Instance { get; } = new MainForm();
+        private static MainForm _instance;
+
+        public static MainForm Instance => _instance ?? (_instance = new MainForm());
 
         public AxShockwaveFlash Client => flashPlayer;
 

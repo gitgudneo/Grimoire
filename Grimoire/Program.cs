@@ -3,8 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Security.AccessControl;
-using System.Threading;
 using System.Windows.Forms;
 using Grimoire.Networking;
 using Grimoire.Tools;
@@ -37,7 +35,6 @@ namespace Grimoire
 
             PluginsManager = new PluginManager();
             
-            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             /* Plugins most likely add an item to the MainForm menustrip,
@@ -54,11 +51,6 @@ namespace Grimoire
         {
             ((Form) sender).Load -= OnMainFormLoaded;
             PluginsManager.LoadRange(Directory.GetFiles(PluginsPath));
-        }
-
-        private static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            
         }
 
         private static void TryCreateDirectory(string dir)
