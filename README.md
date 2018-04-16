@@ -1,4 +1,6 @@
 # Grimoire
+My main reason for creating this project was to learn programming.
+
 Adventure Quest Worlds (AQW) bot
 
 ## Some features in this bot:
