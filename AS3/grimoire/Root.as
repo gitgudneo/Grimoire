@@ -242,6 +242,7 @@
 			ExternalInterface.addCallback("GetPassword", GetPassword);
 			ExternalInterface.addCallback("SetFPS", SetFPS);
 			ExternalInterface.addCallback("RealAddress", RealAddress);
+			ExternalInterface.addCallback("RealPort", RealPort);
 			// </Rest>
 
 			// <Settings>
@@ -258,6 +259,11 @@
 		public function RealAddress():String
 		{
 			return "\"" + Game.objServerInfo.RealAddress + "\"";
+		}
+		
+		public function RealPort():String
+		{
+			return Game.objServerInfo.RealPort;
 		}
 
 		private function GetUsername():String

@@ -31,10 +31,6 @@ namespace Grimoire.Tools
                 case "modifyServers":
                     MainForm.Instance.Client.SetReturnValue("<string>" + ModifyServerList(arg.Trim()) + "</string>");
                     break;
-                case "disconnect":
-                    Proxy.Instance.Stop(false);
-                    World.DropStack.Clear();
-                    break;
             }
         }
 
@@ -109,8 +105,10 @@ namespace Grimoire.Tools
             {
                 XmlElement a = (XmlElement) login.ChildNodes[i];
                 XmlAttribute ip = a.Attributes["sIP"];
+                XmlAttribute port = a.Attributes["iPort"];
                 a.Attributes.Append(doc.CreateAttribute("RealAddress")).Value = ip.Value;
-                a.Attributes["iPort"].Value = Proxy.Instance.ListenerPort.ToString();
+                a.Attributes.Append(doc.CreateAttribute("RealPort")).Value = port.Value;
+                port.Value = Proxy.Instance.ListenerPort.ToString();
                 ip.Value = "127.0.0.1";
 
                 servers[i] = new Server

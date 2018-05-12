@@ -9,7 +9,7 @@ namespace Grimoire.Botting.Commands.Misc
 
         public async Task Execute(IBotEngine instance)
         {
-            await Proxy.Instance.SendToServer(Packet);
+            await Proxy.Instance.SendToServerTask(Packet);
             await Task.Delay(2000);
         }
 

@@ -13,9 +13,13 @@ namespace Grimoire.Networking
                 RawContent = raw;
                 Body = new XmlDocument();
                 Body.LoadXml(raw);
-                Command = raw.Contains("cross-domain-policy") 
-                    ? "policy" 
-                    : Body.DocumentElement?["body"]?.Attributes["action"]?.Value;
+
+                if (raw.Contains("cross-domain-policy"))
+                    Command = "policy";
+                else if (raw.Contains("policy-file-request"))
+                    Command = "policyRequest";
+                else
+                    Command = Body.DocumentElement?["body"]?.Attributes["action"]?.Value;
             }
             catch (XmlException)
             {

@@ -1,4 +1,6 @@
-﻿namespace Grimoire.Networking.Handlers
+﻿using System.Xml;
+
+namespace Grimoire.Networking.Handlers
 {
     public class HandlerPolicy : IXmlMessageHandler
     {
@@ -6,9 +8,16 @@
 
         public void Handle(XmlMessage message)
         {
-            var ports = message.Body?["cross-domain-policy"]?["allow-access-from"];
+            XmlAttribute ports = message.Body
+                    ?["cross-domain-policy"]
+                    ?["allow-access-from"]
+                    ?.Attributes
+                    ?["to-ports"];
+
             if (ports != null)
-                ports.Attributes["to-ports"].Value = Proxy.Instance.ListenerPort.ToString();
+            {
+                ports.Value = Proxy.Instance.ListenerPort.ToString();
+            }
         }
     }
 }

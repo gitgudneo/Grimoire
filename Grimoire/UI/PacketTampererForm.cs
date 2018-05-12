@@ -57,7 +57,7 @@ namespace Grimoire.UI
             if (!string.IsNullOrEmpty(txtSend.Text))
             {
                 btnToClient.Enabled = false;
-                await Proxy.Instance.SendToClient(txtSend.Text);
+                await Proxy.Instance.SendToClientTask(txtSend.Text);
                 btnToClient.Enabled = true;
             }
         }
@@ -67,7 +67,7 @@ namespace Grimoire.UI
             if (!string.IsNullOrEmpty(txtSend.Text))
             {
                 btnToServer.Enabled = false;
-                await Proxy.Instance.SendToServer(txtSend.Text);
+                await Proxy.Instance.SendToServerTask(txtSend.Text);
                 btnToServer.Enabled = true;
             }
         }

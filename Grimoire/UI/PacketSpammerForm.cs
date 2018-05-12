@@ -84,7 +84,7 @@ namespace Grimoire.UI
             if (txtPacket.TextLength > 0)
             {
                 btnSend.Enabled = false;
-                await Proxy.Instance.SendToServer(txtPacket.Text);
+                await Proxy.Instance.SendToServerTask(txtPacket.Text);
                 btnSend.Enabled = true;
             }
         }

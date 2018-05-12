@@ -139,6 +139,7 @@
     <Compile Include="Game\DropStack.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Game\World.cs" />
+    <Compile Include="Networking\GrimoireClient.cs" />
     <Compile Include="Networking\Handlers\HandlerDropItem.cs" />
     <Compile Include="Networking\Handlers\HandlerGetQuests.cs" />
     <Compile Include="Networking\Handlers\HandlerLoadShop.cs" />

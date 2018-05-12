@@ -38,7 +38,7 @@ namespace Grimoire.Tools
                 if (index >= _packets.Count)
                     index = 0;
                 IndexChanged?.Invoke(index);
-                await Proxy.Instance.SendToServer(_packets[index++]);
+                await Proxy.Instance.SendToServerTask(_packets[index++]);
                 await Task.Delay(_delay);
             }
         }

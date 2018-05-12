@@ -59,7 +59,7 @@ namespace Grimoire.Game
 
                 if (!IsCoolingDown(itemId))
                 {
-                    await Proxy.Instance.SendToServer($"%xt%zm%getDrop%{World.RoomId}%{itemId}%");
+                    await Proxy.Instance.SendToServerTask($"%xt%zm%getDrop%{World.RoomId}%{itemId}%");
                     _cooldown.Add(new KeyValuePair<int, Stopwatch>(itemId, Stopwatch.StartNew()));
                     _drops.RemoveAll(d => d.Id == itemId);
                     return true;

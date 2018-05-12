@@ -44,7 +44,7 @@ namespace Grimoire
             
             HotkeysManager.Dispose();
             PluginsManager.UnloadAll();
-            Proxy.Instance.Stop(true);
+            Proxy.Instance.Stop();
         }
 
         private static void OnMainFormLoaded(object sender, EventArgs e)
