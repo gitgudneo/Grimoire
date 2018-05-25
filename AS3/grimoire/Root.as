@@ -34,6 +34,7 @@
 		private const sTitle:String = "Grimoire";
 		private const sURL:String = "https://www.aq.com/game/";
 		private const versionURL:String = "https://www.aq.com/game/gameversion.asp";
+		private var loginURL:String;
 		public static var Game:Object;
 		private var stg:*;
 
@@ -54,7 +55,7 @@
 			Security.allowDomain("*");
 			urlLoader = new URLLoader();
 			urlLoader.addEventListener(Event.COMPLETE, OnDataComplete);
-			urlLoader.load(new URLRequest(versionURL));
+			urlLoader.load(new URLRequest(versionURL + "?ver=" + Math.random()));
 		}
 
 		private function OnDataComplete(e:Event):void
@@ -66,6 +67,7 @@
 			if (vars.status == "success")
 			{
 				sFile = vars.sFile;
+				loginURL = vars.LoginURL;
 				loaderVars = vars;
 				LoadGame();
 			}
@@ -103,6 +105,7 @@
 			Game.params.sURL = sURL;
 			Game.params.sTitle = sTitle;
 			Game.params.vars = loaderVars;
+			Game.params.loginURL = loginURL;
 			
 			Game.sfc.addEventListener(SFSEvent.onConnectionLost, OnDisconnect);
 			Game.loginLoader.addEventListener(Event.COMPLETE, OnLoginComplete);
